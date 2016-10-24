@@ -201,6 +201,7 @@ module BootstrapForm
         label = generate_label(options[:id], name, options[:label], options[:label_col], options[:layout]) if options[:label]
         control = capture(&block).to_s
         control.concat(generate_help(name, options[:help]).to_s)
+        control.concat(generate_validation_failed(name).to_s)
         control.concat(generate_icon(options[:icon])) if options[:icon]
 
         if get_group_layout(options[:layout]) == :horizontal
@@ -385,12 +386,19 @@ module BootstrapForm
     end
 
     def generate_help(name, help_text)
-      help_text = get_error_messages(name) if has_error?(name) && inline_errors
       return if help_text === false
 
       help_text ||= get_help_text_by_i18n_key(name)
 
       content_tag(:span, help_text, class: 'help-block') if help_text.present?
+    end
+
+    def generate_validation_failed(name)
+      validation_failed_text = get_error_messages(name) if has_error?(name) && inline_errors
+
+      return if validation_failed_text === false
+
+      content_tag(:span, validation_failed_text, class: 'help-block') if validation_failed_text.present?
     end
 
     def generate_icon(icon)

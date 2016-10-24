@@ -1,10 +1,7 @@
 ## [Pending Release][]
 
-Bugfixes:
-  - Your contribution here!
-
-Features:
-  - Your contribution here!
+Changes:
+  - Field's help message is displayed, even while inline error message occurs (#284, #300, @antpaw)
 
 ## [2.5.2][] (2016-10-08)
 
