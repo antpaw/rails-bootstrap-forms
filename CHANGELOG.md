@@ -8,6 +8,9 @@ Bugfixes:
 Features:
   - Update to Bootstrap v4
 
+Changes:
+  - Field's help message is displayed, even while inline error message occurs (#284, #300, @antpaw)
+
 ## [2.5.2][] (2016-10-08)
 
 Bugfixes:

@@ -164,7 +164,7 @@ class BootstrapFormTest < ActionView::TestCase
       f.text_field(:email, help: 'This is required')
     end
 
-    expected = %{<form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post" role="form"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div><div class="form-group has-danger"><label class="control-label required" for="user_email">Email</label><input class="form-control" id="user_email" name="user[email]" type="text" /><div class="form-control-feedback">can&#39;t be blank, is too short (minimum is 5 characters)</div></div></form>}
+    expected = %{<form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post" role="form"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div><div class="form-group has-danger"><label class="control-label required" for="user_email">Email</label><input class="form-control" id="user_email" name="user[email]" type="text" /><p class="form-text text-muted">This is required</p><div class="form-control-feedback">can&#39;t be blank, is too short (minimum is 5 characters)</div></div></form>}
     assert_equal expected, output
   end
 
@@ -176,7 +176,7 @@ class BootstrapFormTest < ActionView::TestCase
       f.text_field(:email, help: 'This is required')
     end
 
-    expected = %{<form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div><div class="form-group has-danger"><div class="field_with_errors"><label class="control-label required" for="user_email">Email</label></div><div class="field_with_errors"><input class="form-control" id="user_email" name="user[email]" type="text" /></div><div class="form-control-feedback">can&#39;t be blank, is too short (minimum is 5 characters)</div></div></form>}
+    expected = %{<form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div><div class="form-group has-danger"><div class="field_with_errors"><label class="control-label required" for="user_email">Email</label></div><div class="field_with_errors"><input class="form-control" id="user_email" name="user[email]" type="text" /></div><p class="form-text text-muted">This is required</p><div class="form-control-feedback">can&#39;t be blank, is too short (minimum is 5 characters)</div></div></form>}
     assert_equal expected, output
   end
 
